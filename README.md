@@ -2,8 +2,8 @@
 
 OAuth2.0 Errors using Boom
 
-[![Build Status]](http://travis-ci.org/kurigohan/oauth2boom)
-[![Current Version]](https://www.npmjs.com/package/oauth2boom)
+[![Build Status](https://travis-ci.org/kurigohan/OAuth2Boom.svg?branch=master)](https://travis-ci.org/kurigohan/OAuth2Boom)
+[![Current Version](https://badge.fury.io/js/oauth2boom.svg)](https://www.npmjs.com/package/oauth2boom)
 
 Lead Maintainer: [Andy Nguyen](https://github.com/kurigohan)
 
