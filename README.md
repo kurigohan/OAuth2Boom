@@ -341,7 +341,7 @@ Generates the following response payload:
 
 ### `OAuth2Boom.tokenExpired([message], [data])`
 
-Returns an token_expired error where:
+Returns a token_expired error where:
 - `message` - optional message string that will override the preset message.
 - `data` - optional additional error data.
 

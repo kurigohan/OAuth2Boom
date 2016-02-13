@@ -46,7 +46,7 @@ describe('createNew', () => {
 
   it('returns a Boom error object with a toURIFrag method', (done) => {
 
-    const error = OAuth2Boom.createNew('test_code', 'hello', 400);
+    const error = OAuth2Boom.createNew('test_code', 400, 'hello');
 
     expect(error.isBoom).to.equal(true);
     expect(error.toURIFrag).to.not.equal(undefined);
@@ -58,7 +58,7 @@ describe('createNew', () => {
     const errorCode = 'new_error_code';
     const message = 'This is a new code.';
     const statusCode = 400;
-    const error = OAuth2Boom.createNew(errorCode, message, statusCode);
+    const error = OAuth2Boom.createNew(errorCode, statusCode, message);
 
     expect(error.output.statusCode).to.equal(statusCode);
     expect(error.output.payload.error).to.equal(errorCode);
@@ -68,15 +68,7 @@ describe('createNew', () => {
 
   it('returns a 500 Boom error when no error code parameter is provided', (done) => {
 
-    const error = OAuth2Boom.create();
-
-    expect(error.output.statusCode).to.equal(500);
-    done();
-  });
-
-  it('returns a 500 Boom error when an unknown error code parameter is provided', (done) => {
-
-    const error = OAuth2Boom.create('not_a_real_code');
+    const error = OAuth2Boom.createNew();
 
     expect(error.output.statusCode).to.equal(500);
     done();
