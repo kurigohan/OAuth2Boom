@@ -3,6 +3,7 @@
 // Load modules
 const Code = require('code');
 const Lab = require('lab');
+const Boom = require('boom');
 const QueryString = require('qs');
 const OAuth2Boom = require('../lib');
 
@@ -48,7 +49,7 @@ describe('createNew', () => {
     const error = OAuth2Boom.createNew('test_code', 'hello', 400);
 
     expect(error.isBoom).to.equal(true);
-    expect(error.toURIFrag).to.not.equal(null);
+    expect(error.toURIFrag).to.not.equal(undefined);
     done(); 
   });
 
@@ -64,7 +65,7 @@ describe('createNew', () => {
     expect(error.output.payload.message).to.equal(message);
     done();
   });
-  
+
   it('returns a 500 Boom error when no error code parameter is provided', (done) => {
 
     const error = OAuth2Boom.create();
@@ -81,6 +82,39 @@ describe('createNew', () => {
     done();
   });
 });
+
+describe('wrap', () => {
+  it('returns the same object when already boom', (done) => {
+
+    const error = OAuth2Boom.create('invalid_client');
+    const wrapped = OAuth2Boom.wrap(error);
+    
+    expect(error).to.equal(wrapped);
+    done();
+  });
+
+  it('adds the toURIFrag method', (done) => {
+
+    const error = Boom.badRequest();
+    expect(error.toURIFrag).to.equal(undefined);
+   
+    const wrapped = OAuth2Boom.wrap(error);
+    expect(wrapped.toURIFrag).to.not.equal(undefined);
+    done();
+  });
+
+  it('replaces the output payload error if the error code parameter is provided', (done) => {
+
+    const error = Boom.unauthorized();
+    expect(error.output.payload.error).to.equal('Unauthorized');
+
+    const wrapped = OAuth2Boom.wrap(error, 'test');
+    expect(wrapped.output.payload.error).to.equal('test');
+    done();
+  });
+});
+
+
 
 describe('toURIFrag', () => {
 

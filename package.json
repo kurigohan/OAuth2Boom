@@ -1,6 +1,6 @@
 {
   "name": "oauth2boom",
-  "description": "OAuth2.0 Boom error objects",
+  "description": "OAuth2.0 Errors using Boom",
   "version": "1.0.0",
   "repository": "",
   "main": "lib/index.js",
