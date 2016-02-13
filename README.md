@@ -11,7 +11,7 @@ Lead Maintainer: [Andy Nguyen](https://github.com/kurigohan)
   - [Helper Methods](#helper-methods)
     - [`wrap(error, [errorCode], [statusCode], [message])`](#wraperror-errorcode-statuscode-message)
     - [`create(errorCode, [message], [data])`](#createerrorcode-message-data)
-    - [`createNew(errorCode, [message], [data])`](#createnewerrorcode-message-data)
+    - [`createNew(errorCode, [message], [data])`](#createnewerrorcode-statuscode-message-data)
   - [HTTP 400 Errors](#http-400-errors)
     - [`OAuth2Boom.invalidClient([message], [data])`](#oauth2boominvalidclientmessage-data)
     - [`OAuth2Boom.invalidRequest([message], [data])`](#oauth2boominvalidrequestmessage-data)
@@ -59,7 +59,7 @@ Generates an `Error` object with the **boom** decorations where:
 - `data` - additional error data set to `error.data` property.
 
 ```js
-var error = OAuth2Boom.create('invalid_client', 'Bad request', { timestamp: Date.now() });
+var error = OAuth2Boom.createNew('oauth_error', 400, 'Bad request', { timestamp: Date.now() });
 ```
 
 ### `wrap(error, [errorCode], [statusCode], [message])`
