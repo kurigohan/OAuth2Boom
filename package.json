@@ -1,7 +1,7 @@
 {
   "name": "oauth2boom",
   "description": "OAuth2.0 Errors using Boom",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": "https://github.com/kurigohan/OAuth2Boom.git",
   "main": "lib/index.js",
   "keywords": [
