@@ -52,8 +52,8 @@ var error = OAuth2Boom.create('invalid_client', 'Bad request', { timestamp: Date
 
 ### `createNew(errorCode, [statusCode], [message], [data])`
 
-Generates an `Error` object with the **boom** decorations where:
-- `errorCode` - an OAuth 2.0 error code.
+Generates an `Error` object with the **boom** decorations and a custom error code where:
+- `errorCode` - an error code.
 - `statusCode` - an HTTP error code number. Must be greater or equal 400.
 - `message` - optional message string that will override the preset message.
 - `data` - additional error data set to `error.data` property.

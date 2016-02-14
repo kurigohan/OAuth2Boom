@@ -40,6 +40,14 @@ describe('create', () => {
     expect(error.output.statusCode).to.equal(500);
     done();
   });
+
+  it('overrides preset message if a message parameter is provided', (done) => {
+      
+    const error = OAuth2Boom.create('invalid_client', 'hello');
+
+    expect(error.output.payload.message).to.equal('hello');
+    done();
+  });
 });
 
 describe('createNew', () => {
