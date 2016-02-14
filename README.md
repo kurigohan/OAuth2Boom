@@ -1,6 +1,6 @@
 # OAuth2Boom
 
-OAuth2.0 Errors using Boom
+OAuth2.0 Errors using [Boom](https://github.com/hapijs/boom)
 
 [![Build Status](https://travis-ci.org/kurigohan/OAuth2Boom.svg?branch=master)](https://travis-ci.org/kurigohan/OAuth2Boom)
 [![Current Version](https://badge.fury.io/js/oauth2boom.svg)](https://www.npmjs.com/package/oauth2boom)
